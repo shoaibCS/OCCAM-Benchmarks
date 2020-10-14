@@ -6,8 +6,7 @@ BZIP_TAR=${BZIP_NAME}.tar.gz
 
 BZIP_MANIFEST=${BZIP}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
+LIBBZ2_BITCOE=/OCCAM-Benchmarks/libraries/libbz2/libbz2.a.bc
 
 
 OUT_DIR?=slash
@@ -91,7 +90,7 @@ test_decompress:
 
 
 
-${BZIP_BITCODE}: ${BZIP_NAME} 
+${BZIP_BITCODE}: ${BZIP_NAME} ${LIBBZ2_BITCOE}
 	cd ${BZIP_NAME} && \
 	sed -i 's/-O2 -g/ -fno-inline -fno-inline-functions -Xclang -disable-O0-optnone/g' ./Makefile && \
 	sed -i 's/CC=gcc/CC?=gcc/g' ./Makefile && \
@@ -100,10 +99,14 @@ ${BZIP_BITCODE}: ${BZIP_NAME}
 	cp huffman.c ../ && \
 	./bzip2 -fkqs huffman.c && \
 	mv huffman.c.bz2 ../huffman_unspecialized.c.bz2 && \
-	mv ${BZIP_BITCODE} ../
+	mv ${BZIP_BITCODE} ../ && \
+	cp ${LIBBZ2_BITCOE} ../
 		
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
+
+${LIBBZ2_BITCOE}:
+	make -C /OCCAM-Benchmarks/libraries/libbz2/
 
 ${BZIP_NAME}:
 	wget https://sourceware.org/pub/bzip2/bzip2-1.0.5.tar.gz
@@ -115,5 +118,5 @@ ${HELPER_SCRIPT}:
 clean:
 	rm -rf ${BZIP_NAME} ${BZIP_TAR} bzip2
 	rm -rf *.bc *slash* *manifest *fin*
-	rm -rf huffman_unspecialized.c.bz2 huffman.c
+	rm -rf huffman_unspecialized.c.bz2 huffman.c 	
 	rm -rf ${OUT_DIR}

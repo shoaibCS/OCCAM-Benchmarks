@@ -6,9 +6,7 @@ MEMCACHED_TAR=${MEMCACHED_NAME}.tar.gz
 
 MEMCACHED_MANIFEST=${MEMCACHED}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
+LIBEVENT_BITCODE=/OCCAM-Benchmarks/libraries/libevent/libevent.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -28,7 +26,8 @@ compress: ${OUT_DIR}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${MEMCACHED_MANIFEST} ./  2> ${LOG_FILE}
 
 .PHONY: ${MEMCACHED_BITCODE}
-${MEMCACHED_BITCODE}: ${MEMCACHED_NAME} 
+${MEMCACHED_BITCODE}: ${MEMCACHED_NAME} ${LIBEVENT_BITCODE}
+	cp ${LIBEVENT_BITCODE} . && \
 	cd ${MEMCACHED_NAME} && \
 	CC=${BITCODE_WRAPPER} ./configure && \
 	sed -i 's/CFLAGS = -g -O2 -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls/CFLAGS = -Xclang -disable-O0-optnone -O0/g' ./Makefile && \
@@ -39,6 +38,9 @@ ${MEMCACHED_BITCODE}: ${MEMCACHED_NAME}
 		
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
+
+${LIBEVENT_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libevent/ 
 
 ${MEMCACHED_NAME}:
 	wget https://memcached.org/files/memcached-1.4.25.tar.gz

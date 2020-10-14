@@ -7,8 +7,8 @@ GZIP_PATCH=gzip.patch
 
 GZIP_MANIFEST=${GZIP}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
+LIBBZ2_BITCOE=/OCCAM-Benchmarks/libraries/libbz2/libbz2.a.bc
+
 
 
 OUT_DIR?=slash
@@ -56,7 +56,8 @@ test_compress:
 
 	
 .PHONY: ${GZIP_BITCODE}
-${GZIP_BITCODE}: ${GZIP_NAME} 
+${GZIP_BITCODE}: ${GZIP_NAME} ${LIBBZ2_BITCOE}	
+	cp ${LIBBZ2_BITCOE} . && \
 	cp helper_huffman.c huffman.c && \
 	cp ${GZIP_PATCH} ${GZIP_NAME} && \
 	cd ${GZIP_NAME} && \
@@ -71,6 +72,8 @@ ${GZIP_BITCODE}: ${GZIP_NAME}
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
 
+${LIBBZ2_BITCOE}:
+	make -C /OCCAM-Benchmarks/libraries/libbz2/
 ${GZIP_NAME}:
 	wget https://gnu.askapache.com/gzip/gzip-1.3.12.tar.gz
 	tar -xvzf ./${GZIP_TAR}
