@@ -11,6 +11,7 @@ AIRTUN-NG_MANIFEST=${AIRTUN-NG}.manifest
 
 SSL_BITCODE=/OCCAM-Benchmarks/libraries/ssl_and_crypt/libssl.a.bc
 CRYPTO_BITCODE=/OCCAM-Benchmarks/libraries/ssl_and_crypt/libcrypto.a.bc
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -36,8 +37,8 @@ airtun: ${OUT_DIR}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${AIRTUN-NG_MANIFEST} ./  2> ${LOG_FILE}
 
 .PHONY: ${AIRTUN-NG_BITCODE}
-${AIRCRACK-NG_BITCODE}: ${AIRCRACK-NG_NAME} ${CRYPTO_BITCODE} ${SSL_BITCODE}
-	cp ${CRYPTO_BITCODE} ${SSL_BITCODE} . && \
+${AIRCRACK-NG_BITCODE}: ${AIRCRACK-NG_NAME} ${CRYPTO_BITCODE} ${SSL_BITCODE} ${LIBC_BITCODE}
+	cp ${CRYPTO_BITCODE} ${SSL_BITCODE} ${LIBC_BITCODE} . && \
 	cp crypto.patch ${AIRCRACK-NG_NAME}/src/ && \
 	patch ${AIRCRACK-NG_NAME}/src/crypto.c crypto.patch && \
 	cd ${AIRCRACK-NG_NAME} && \
@@ -65,6 +66,9 @@ ${CRYPTO_BITCODE}:
 
 ${SSL_BITCODE}:
 	make -C /OCCAM-Benchmarks/libraries/ssl_and_crypt/
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 clean:
 	rm -rf ${AIRCRACK-NG_NAME} airtun-ng ${AIRCRACK-NG_TAR}

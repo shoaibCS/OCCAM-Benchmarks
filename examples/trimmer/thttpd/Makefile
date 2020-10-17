@@ -7,9 +7,8 @@ THTTPD_PATCH=thttpd.patch
 
 THTTPD_MANIFEST=${THTTPD}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
 
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -27,7 +26,8 @@ compress: ${OUT_DIR}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${THTTPD_MANIFEST} ./ 2> ${LOG_FILE}
 
 .PHONY: ${THTTPD_BITCODE}
-${THTTPD_BITCODE}: ${THTTPD_NAME} 
+${THTTPD_BITCODE}: ${THTTPD_NAME} ${LIBC_BITCODE}
+	cp ${LIBC_BITCODE} . && \
 	cp ${THTTPD_PATCH} ${THTTPD_NAME} && \
 	cd ${THTTPD_NAME} && \
 	patch -p0 -f < ./${THTTPD_PATCH} && \
@@ -39,6 +39,8 @@ ${THTTPD_BITCODE}: ${THTTPD_NAME}
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
 
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 ${THTTPD_NAME}:
 	wget https://github.com/shoaibCS/TRIMMER-applications/raw/master/trimmer/thttpd/thttpd-2.25b.tar.gz
 	tar -xvzf ./${THTTPD_TAR}

@@ -8,9 +8,7 @@ OBJDUMP_TAR=${OBJDUMP_NAME}.tar.bz2
 
 OBJDUMP_MANIFEST=${OBJDUMP}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -27,7 +25,8 @@ compress: ${OUT_DIR}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${OBJDUMP_MANIFEST} ./work_dir readelf 2> ${LOG_FILE}
 
 .PHONY: ${OBJDUMP_BITCODE}
-${OBJDUMP_BITCODE}: ${OBJDUMP_NAME} 
+${OBJDUMP_BITCODE}: ${OBJDUMP_NAME} ${LIBC_BITCODE}
+	cp ${LIBC_BITCODE} . && \
 	cd ${OBJDUMP_NAME} && \
 	cp ../elflink.patch ../elf64-ppc.patch ./bfd/ && \
 	patch ./bfd/elflink.c bfd/elflink.patch && \
@@ -45,6 +44,9 @@ ${OUT_DIR}:
 ${OBJDUMP_NAME}:
 	wget ftp://sourceware.org/pub/binutils/snapshots/binutils-2.28.90.tar.bz2
 	tar -xvf ./${OBJDUMP_TAR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 ${HELPER_SCRIPT}:
 	tar -xvf ./${HELPER_TAR}

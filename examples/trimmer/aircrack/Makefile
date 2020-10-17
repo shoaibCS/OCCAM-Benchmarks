@@ -10,7 +10,8 @@ AIRCRACK-NG_MANIFEST=${AIRCRACK-NG}.manifest
 
 SSL_BITCODE=/OCCAM-Benchmarks/libraries/ssl_and_crypt/libssl.a.bc
 CRYPTO_BITCODE=/OCCAM-Benchmarks/libraries/ssl_and_crypt/libcrypto.a.bc
-HELPER_TAR=helper_scripts_and_files.tar.gz
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
+
 
 
 OUT_DIR?=slash
@@ -37,8 +38,8 @@ airtun: ${OUT_DIR}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${AIRTUN-NG_MANIFEST} ./  2> ${LOG_FILE}
 
 .PHONY: ${AIRCRACK-NG_BITCODE}
-${AIRCRACK-NG_BITCODE}: ${AIRCRACK-NG_NAME} ${CRYPTO_BITCODE} ${SSL_BITCODE}
-	cp ${CRYPTO_BITCODE} ${SSL_BITCODE} . && \
+${AIRCRACK-NG_BITCODE}: ${AIRCRACK-NG_NAME} ${CRYPTO_BITCODE} ${SSL_BITCODE} ${LIBC_BITCODE}
+	cp ${CRYPTO_BITCODE} ${SSL_BITCODE} ${LIBC_BITCODE} . && \
 	cp crypto.patch ${AIRCRACK-NG_NAME}/src/ && \
 	patch ${AIRCRACK-NG_NAME}/src/crypto.c crypto.patch && \
 	cd ${AIRCRACK-NG_NAME} && \
@@ -63,6 +64,9 @@ ${CRYPTO_BITCODE}:
 
 ${SSL_BITCODE}:
 	make -C /OCCAM-Benchmarks/libraries/ssl_and_crypt/
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 CHECK_AIRCRACK=$(shell cd ${OUT_DIR}/  && ./aircrack-ng_fin_stripped_1 | grep 'biscotte')
 

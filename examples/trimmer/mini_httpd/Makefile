@@ -8,9 +8,7 @@ MINI_HTTPD_MANIFEST=${MINI_HTTPD}.manifest
 MINI_HTTPD_PATCH=mini_httpd.patch
 MINI_HTTPD_CONF=./mini_httpd.conf
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -50,7 +48,8 @@ test_mini:
 	fi
 
 
-${MINI_HTTPD_BITCODE}: ${MINI_HTTPD_NAME} 
+${MINI_HTTPD_BITCODE}: ${MINI_HTTPD_NAME} ${LIBC_BITCODE}
+	cp ${LIBC_BITCODE} . && \
 	cp ${MINI_HTTPD_PATCH} ${MINI_HTTPD_NAME} &&  \
 	cd ${MINI_HTTPD_NAME} && \
 	sed -i 's/CC =		gcc/CC? = gcc/g' ./Makefile && \
@@ -66,6 +65,10 @@ ${OUT_DIR}:
 ${MINI_HTTPD_NAME}:
 	wget https://github.com/shoaibCS/TRIMMER-applications/raw/master/trimmer/mini_httpd/mini_httpd-1.19.tar.gz 
 	tar -xvf ./${MINI_HTTPD_TAR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
+
 ${HELPER_SCRIPT}:
 	tar -xvf ./${HELPER_TAR}
 

@@ -5,8 +5,7 @@ SANS_TAR=${SANS_NAME}.tar.gz
 
 SANS_MANIFEST=${SANS}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -39,7 +38,8 @@ tcp: ${OUT_DIR}
 
 
 .PHONY: ${SANS_BITCODE}
-${SANS_BITCODE}: ${SANS_NAME} 
+${SANS_BITCODE}: ${SANS_NAME} ${LIBC_BITCODE}
+	cp ${LIBC_BITCODE} . && \
 	cd ${SANS_NAME} && \
 	autoreconf -if && \
 	CC=${BITCODE_WRAPPER} CFLAGS="-O0 -fno-inline -fno-inline-functions -Xclang -disable-O0-optnone" ./configure && \
@@ -50,6 +50,9 @@ ${SANS_BITCODE}: ${SANS_NAME}
 		
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 ${SANS_NAME}:
 	git clone https://github.com/puxxustc/sans.git

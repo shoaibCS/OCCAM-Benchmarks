@@ -7,6 +7,7 @@ MEMCACHED_TAR=${MEMCACHED_NAME}.tar.gz
 MEMCACHED_MANIFEST=${MEMCACHED}.manifest
 
 LIBEVENT_BITCODE=/OCCAM-Benchmarks/libraries/libevent/libevent.a.bc
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -26,8 +27,8 @@ compress: ${OUT_DIR}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${MEMCACHED_MANIFEST} ./  2> ${LOG_FILE}
 
 .PHONY: ${MEMCACHED_BITCODE}
-${MEMCACHED_BITCODE}: ${MEMCACHED_NAME} ${LIBEVENT_BITCODE}
-	cp ${LIBEVENT_BITCODE} . && \
+${MEMCACHED_BITCODE}: ${MEMCACHED_NAME} ${LIBEVENT_BITCODE} ${LIBC_BITCODE}
+	cp ${LIBEVENT_BITCODE} ${LIBC_BITCODE} . && \
 	cd ${MEMCACHED_NAME} && \
 	CC=${BITCODE_WRAPPER} ./configure && \
 	sed -i 's/CFLAGS = -g -O2 -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls/CFLAGS = -Xclang -disable-O0-optnone -O0/g' ./Makefile && \
@@ -45,6 +46,9 @@ ${LIBEVENT_BITCODE}:
 ${MEMCACHED_NAME}:
 	wget https://memcached.org/files/memcached-1.4.25.tar.gz
 	tar -xvzf ./${MEMCACHED_TAR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 ${HELPER_SCRIPT}:
 	tar -xvf ./${HELPER_TAR}

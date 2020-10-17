@@ -15,6 +15,7 @@ OBJDUMP_MANIFEST=${OBJDUMP}.manifest
 
 
 LIBZ_BITCODE=/OCCAM-Benchmarks/libraries/libz/libz.a.bc
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=slash
 LOG_FILE?=logs
@@ -71,9 +72,9 @@ objdump: ${OUT_DIR}
 
 
 .PHONY: ${READELF_BITCODE}
-${READELF_BITCODE}: ${READELF_NAME} ${LIBZ_BITCODE} 
+${READELF_BITCODE}: ${READELF_NAME} ${LIBZ_BITCODE} ${LIBC_BITCODE}
 
-	cp ${LIBZ_BITCODE} . && \
+	cp ${LIBZ_BITCODE} ${LIBC_BITCODE} . && \
 	cd ${READELF_NAME} && \
 	cp ../elflink.patch ../elf64-ppc.patch ./bfd/ && \
 	patch ./bfd/elflink.c bfd/elflink.patch && \
@@ -93,6 +94,9 @@ ${OUT_DIR}:
 ${READELF_NAME}:
 	wget ftp://sourceware.org/pub/binutils/snapshots/binutils-2.28.90.tar.bz2
 	tar -xvf ./${READELF_TAR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 ${LIBZ_BITCODE}:
 	make -C /OCCAM-Benchmarks/libraries/libz/

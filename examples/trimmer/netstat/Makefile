@@ -6,9 +6,7 @@ NETSTAT_TAR=${NETSTAT_NAME}.tar.gz
 
 NETSTAT_MANIFEST=${NETSTAT}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=slash
 LOG_FILE?=logs
@@ -45,7 +43,8 @@ test_netstat:
 
 
 .PHONY: ${NETSTAT_BITCODE}
-${NETSTAT_BITCODE}: ${NETSTAT_NAME} 
+${NETSTAT_BITCODE}: ${NETSTAT_NAME} ${LIBC_BITCODE}
+	cp ${LIBC_BITCODE} . && \
 	cp optnone.patch ${NETSTAT_NAME} && \
 	cd ${NETSTAT_NAME} && \
 	sed -i 's/CC	= gcc//g' ./Makefile && \
@@ -62,6 +61,9 @@ ${OUT_DIR}:
 ${NETSTAT_NAME}:
 	wget https://github.com/shoaibCS/TRIMMER-applications/raw/master/trimmer/netstat/netstat-1.60.tar.gz
 	tar -xvzf ./${NETSTAT_TAR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 ${HELPER_SCRIPT}:
 	tar -xvf ./${HELPER_TAR}

@@ -8,8 +8,8 @@ TOTD_MANIFEST=${TOTD}.manifest
 TOTD_CONF1=./totdipv6.conf
 TOTD_CONF2=./totdipv4.conf
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
+
+LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -32,7 +32,8 @@ ipv4: ${OUT_DIR} ${TOTD_BITCODE}
 	cd ${OUT_DIR} && \echo '{"binary": "totd_fin", "native_libs": [], "name": "totd", "args": ["-c", "totdipv4.conf", "-d2"],"modules": [], "ldflags": [], "main": "totd.bc","config_files":["totdipv4.conf"]}' > ${TOTD_MANIFEST} && \
 	python ${TRIMMER_HOME}/tool/trimmer.py ${TOTD_MANIFEST} ./ no-optimization 2> ${LOG_FILE}
 
-${TOTD_BITCODE}: ${TOTD_NAME} 
+${TOTD_BITCODE}: ${TOTD_NAME} ${LIBC_BITCODE}
+	cp ${LIBC_BITCODE} . && \
 	cd ${TOTD_NAME} && \
 	sed -i 's/-g -O2/ -Xclang -disable-O0-optnone -O0/g' ./Makefile && \
 	sed -i 's/CC = gcc/CC? = gcc/g' ./Makefile && \
@@ -42,6 +43,9 @@ ${TOTD_BITCODE}: ${TOTD_NAME}
 		
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
+
+${LIBC_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libc/
 
 ${TOTD_NAME}:
 	wget https://github.com/shoaibCS/TRIMMER-applications/raw/master/trimmer/totd/totd-1.5.3.tar.gz
