@@ -14,9 +14,7 @@ READELF_MANIFEST=${READELF}.manifest
 OBJDUMP_MANIFEST=${OBJDUMP}.manifest
 
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
+LIBZ_BITCODE=/OCCAM-Benchmarks/libraries/libz/libz.a.bc
 
 OUT_DIR?=slash
 LOG_FILE?=logs
@@ -64,7 +62,7 @@ endif
 
 
 
-objdump: ${OUT_DIR}
+objdump: ${OUT_DIR} 
 	cp ${OBJDUMP_BITCODE} ${OUT_DIR}
 	cd ${OUT_DIR} && \
 	echo '{"binary": "objdump_fin", "native_libs": [], "name": "objdump", "args": ["-D","--syms","-s","-w","name"], "modules": [], "ldflags": ["-ldl"], "main": "objdump.bc", "config_files": []}' > ${OBJDUMP_MANIFEST} && \
@@ -73,8 +71,9 @@ objdump: ${OUT_DIR}
 
 
 .PHONY: ${READELF_BITCODE}
-${READELF_BITCODE}: ${READELF_NAME} 
+${READELF_BITCODE}: ${READELF_NAME} ${LIBZ_BITCODE} 
 
+	cp ${LIBZ_BITCODE} . && \
 	cd ${READELF_NAME} && \
 	cp ../elflink.patch ../elf64-ppc.patch ./bfd/ && \
 	patch ./bfd/elflink.c bfd/elflink.patch && \
@@ -95,6 +94,8 @@ ${READELF_NAME}:
 	wget ftp://sourceware.org/pub/binutils/snapshots/binutils-2.28.90.tar.bz2
 	tar -xvf ./${READELF_TAR}
 
+${LIBZ_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libz/
 ${HELPER_SCRIPT}:
 	tar -xvf ./${HELPER_TAR}
 

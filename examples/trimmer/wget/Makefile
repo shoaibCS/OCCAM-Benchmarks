@@ -8,9 +8,8 @@ WGET_PATCH=wget.patch
 
 WGET_MANIFEST=${WGET}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
+LIBZ_BITCODE=/OCCAM-Benchmarks/libraries/libz/libz.a.bc
+LIBPCRE_BITCODE=/OCCAM-Benchmarks/libraries/pcre/libpcre.a.bc
 
 OUT_DIR?=slash
 LOG_FILE?=logs
@@ -55,7 +54,8 @@ test_compress:
 
 
 .PHONY: ${WGET_BITCODE}
-${WGET_BITCODE}: ${WGET_NAME} 
+${WGET_BITCODE}: ${WGET_NAME} ${LIBZ_BITCODE} ${LIBPCRE_BITCODE}
+	cp ${LIBZ_BITCODE} ${LIBPCRE_BITCODE} . && \
 	cp ${WGET_PATCH} ${WGET_NAME} && \
 	cd ${WGET_NAME} && \
 	patch -p0 -f -R -i ./${WGET_PATCH} && \
@@ -72,6 +72,11 @@ ${WGET_NAME}:
 	wget http://gnu.mirrors.hoobly.com/wget/wget-1.17.1.tar.gz
 	tar -xvzf ./${WGET_TAR}
 
+${LIBZ_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libz/
+
+${LIBPCRE_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/pcre
 ${HELPER_SCRIPT}:
 	tar -xvf ./${HELPER_TAR}
 
