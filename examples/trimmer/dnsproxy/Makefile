@@ -8,6 +8,7 @@ DNSPROXY_MANIFEST=${DNSPROXY}.manifest
 DNSPROXY_CONF=./dnsproxy.conf
 
 LIBC_BITCODE=/OCCAM-Benchmarks/libraries/libc/libc.a.bc
+LIBEVENT_BITCODE=/OCCAM-Benchmarks/libraries/libevent/libevent.a.bc
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
@@ -24,7 +25,7 @@ dns: ${OUT_DIR} ${DNSPROXY_BITCODE}
 	python ${TRIMMER_HOME}/tool/trimmer.py ${DNSPROXY_MANIFEST} ./ 2> ${LOG_FILE}
 
 
-${DNSPROXY_BITCODE}: ${DNSPROXY_NAME} ${LIBC_BITCODE}
+${DNSPROXY_BITCODE}: ${DNSPROXY_NAME} ${LIBC_BITCODE} ${LIBEVENT_BITCODE}
 	cp ${LIBC_BITCODE} . && \
 	cd ${DNSPROXY_NAME} && \
 	CC=${BITCODE_WRAPPER} CFLAGS="-DHAVE_CONFIG_H -DVERSION="\"1.17\"" -Xclang -disable-O0-optnone " ./configure && \
@@ -34,6 +35,9 @@ ${DNSPROXY_BITCODE}: ${DNSPROXY_NAME} ${LIBC_BITCODE}
 		
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
+
+${LIBEVENT_BITCODE}:
+	make -C /OCCAM-Benchmarks/libraries/libevent/
 
 ${DNSPROXY_NAME}:
 	wget https://wolfermann.org/dnsproxy-1.17.tar.gz

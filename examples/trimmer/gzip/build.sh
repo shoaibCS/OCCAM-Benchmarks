@@ -97,8 +97,8 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "gzip", 
 "static_args": ["--force",  "--quiet",  "/OCCAM-Benchmarks/examples/trimmer/gzip/huffman.c"], 
-"modules": [], 
-"ldflags": ["-lbz2","-O3"], 
+"modules": ["libc.a.bc","libbz2.a.bc"], 
+"ldflags": ["-O3"], 
 "main": "gzip.bc"}
 EOF
 

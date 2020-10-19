@@ -97,8 +97,8 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "dnsproxy", 
 "static_args": ["-c", "/OCCAM-Benchmarks/examples/trimmer/dnsproxy/dnsproxy.conf"], 
-"modules": [], 
-"ldflags": ["-levent","-O3"], 
+"modules": ["libc.a.bc","libevent.a.bc"], 
+"ldflags": ["-O3"], 
 "main": "dnsproxy.bc"}
 EOF
 

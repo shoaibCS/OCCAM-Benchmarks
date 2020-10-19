@@ -97,7 +97,7 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "thttpd", 
 "static_args": ["-C",  "/OCCAM-Benchmarks/examples/trimmer/thttpd/thttpd.conf"], 
-"modules": [], 
+"modules": ["libc.a.bc"], 
 "ldflags": ["-lcrypt","-O3"], 
 "main": "thttpd.bc"}
 EOF

@@ -97,8 +97,8 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "aircrack-ng", 
 "static_args": ["-w", "password.lst","wpa.cap"], 
-"modules": [], 
-"ldflags": ["-lssl","-lcrypto","-lpthread","$(pwd)/sha1-sse2.S","-O3"], 
+"modules": ["libc.a.bc","libssl.a.bc","libcrypto.a.bc"], 
+"ldflags": ["-lpthread","$(pwd)/sha1-sse2.S","-O3"], 
 "main": "aircrack-ng.bc"}
 EOF
 

@@ -97,7 +97,7 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "mini_httpd", 
 "static_args": ["-C", "/OCCAM-Benchmarks/examples/trimmer/mini_httpd/mini_httpd.conf"], 
-"modules": [], 
+"modules": ["libc.a.bc"], 
 "ldflags": ["-lcrypt","-O3"], 
 "main": "mini_httpd.bc"}
 EOF

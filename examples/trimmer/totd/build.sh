@@ -97,7 +97,7 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "totd", 
 "static_args": ["-c", "/OCCAM-Benchmarks/examples/trimmer/totd/totdipv4.conf", "-d2"],
-"modules": [], 
+"modules": ["libc.a.bc"], 
 "ldflags": ["-O3"], 
 "main": "totd.bc"}
 EOF

@@ -97,8 +97,8 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "memcached", 
 "static_args": ["-m","64","-l","127.0.0.1","-u","root"], 
-"modules": [], 
-"ldflags": ["-levent","-lpthread","-O3"], 
+"modules": ["libevent.a.bc","libc.a.bc"], 
+"ldflags": ["-lpthread","-O3"], 
 "main": "memcached.bc"}
 EOF
 

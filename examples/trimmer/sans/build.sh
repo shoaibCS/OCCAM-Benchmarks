@@ -97,7 +97,7 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "sans", 
 "static_args": ["-c", "/OCCAM-Benchmarks/examples/trimmer/sans/sans.conf"], 
-"modules": [], 
+"modules": ["libc.a.bc"], 
 "ldflags": ["-O3"], 
 "main": "sans.bc"}
 

@@ -97,8 +97,8 @@ cat > ${MANIFEST} <<EOF
 "native_libs": [], 
 "name": "readelf", 
 "static_args": ["-a", "name"], 
-"modules": [], 
-"ldflags": ["-lz","-ldl","-O3"], 
+"modules": ["libz.a.bc","libc.a.bc"], 
+"ldflags": ["-ldl","-O3"], 
 "main": "readelf.bc"}
 EOF
 
