@@ -1,0 +1,1625 @@
+[ARGS]
+isLimitedDepth: 0
+depthLimit: 1
+argc value :  %10 = call i32 @getopt(i32 %0, i8** %1, i8* %9) #8, !track_argc !2
+argc value :  %30 = call i32 @getopt(i32 %0, i8** %1, i8* %29) #8, !track_argc !2
+
+
+
+
+TOTAL LOOPS: 4
+  %10 = call i32 @getopt(i32 %0, i8** %1, i8* %9) #8, !track_argc !2
+i32 %0 getting uses of scalar 
+getopt
+getopt
+  %30 = call i32 @getopt(i32 %0, i8** %1, i8* %29) #8, !track_argc !2
+i32 %0 getting uses of scalar 
+PROCESSING 0x55a6235c32b0 Size: 1
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+(LOG) (LOOP) Marking loop for BB  in function main for instruction   %17 = load i8*, i8** @optarg, align 8
+Going forward on Instruction:   %17 = load i8*, i8** @optarg, align 8 in function main
+forwardDfsLambda with return size: 1
+dfs_rec
+forwardDfsLambda with return size: 2
+dfs_rec
+forwardDfsLambda with return size: 2
+dfs_rec
+forwardDfsLambda with return size: 0
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+i8* %0 phinode
+
+PHINode inst: i8* %0
+ArgParent: parse
+call found
+   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+call with found true:   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet i8* %0
+Adding to storeSet   %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0
+Adding to storeSet 
+declare dso_local %struct._IO_FILE* @fopen(i8*, i8*) #1
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %.12 = phi i8* [ %.0110, %18 ], [ %17, %16 ]
+User :   %.0110 = phi i8* [ %13, %.lr.ph ], [ %.12, %28 ]
+User :   %split = phi i8* [ %.12, %28 ]
+User :   %.12 = phi i8* [ %.0110, %18 ], [ %17, %16 ]
+User :   %.01.lcssa9 = phi i8* [ %.0110, %14 ]
+User :   %.01.lcssa = phi i8* [ %split, %._crit_edge ], [ %12, %2 ]
+User :   %33 = call i32 @parse(i8* %.01.lcssa)
+User :   %34 = icmp ne i32 %33, 0
+User :   br i1 %34, label %37, label %35
+User :   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+User :   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+User :   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+User :   %110 = call i32 @fclose(%struct._IO_FILE* %4)
+User :   %5 = icmp eq %struct._IO_FILE* %4, null
+User :   %10 = icmp ne i8* %9, null
+User :   br i1 %10, label %.lr.ph, label %109
+(LOG) (LOOP) Marking loop for BB  in function parse for instruction   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+User :   %27 = icmp ne i8* %26, null
+User :   br i1 %27, label %11, label %._crit_edge
+User :   br i1 %5, label %6, label %7
+  %33 = call i32 @parse(i8* %.01.lcssa) getting uses of scalar 
+  %110 = call i32 @fclose(%struct._IO_FILE* %4) getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) Node: 0x55a6235cf370 Function: parse
+GLOBAL: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+0x55a6235cbc80
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+is external call 
+declare dso_local %struct._IO_FILE* @fopen(i8*, i8*) #1
+
+Adding root to output
+Node: 0x55a6235cf370 Size: 0
+Data: 0x55a6236269e0
+1size
+  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0 Node: 0x55a6235d96a0 Function: parse
+GLOBAL: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+0x55a6235cbc80
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+Adding root to output
+Node: 0x55a6235d96a0 Size: 1
+dfs_rec
+Node: 0x55a6235cbc80 Size: 0
+Data: 0x55a623629710
+1size
+  %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0 here
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+PROCESSING 0x55a6235cbc80 Size: 4
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0 in function parse
+call found
+   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+call with found true:   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet i8* %0
+Adding to storeSet   %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0
+Adding to storeSet 
+declare dso_local %struct._IO_FILE* @fopen(i8*, i8*) #1
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Backward dp size:0
+dfs_rec
+Going backward on :   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) Node: 0x55a6235cf370 Function: parse
+GLOBAL: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+0x55a6235cbc80
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+is external call 
+declare dso_local %struct._IO_FILE* @fopen(i8*, i8*) #1
+
+Adding root to output
+Data: 0x55a623629b80
+1size
+  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0 Node: 0x55a6235d96a0 Function: parse
+GLOBAL: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+0x55a6235cbc80
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+Adding root to output
+Data: 0x55a623629bf0
+1size
+  %3 = getelementptr [2 x i8], [2 x i8]* @.str.44, i32 0, i32 0 here
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+PROCESSING 0x55a6235cf370 Size: 5  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+dfs_rec
+fopen
+Going forward on Instruction:   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) in function parse
+call found
+   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+call with found true:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+Adding to storeSet   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+call found
+   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+call with found true:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+Adding to storeSet   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+call found
+   %110 = call i32 @fclose(%struct._IO_FILE* %4)
+call with found true:   %110 = call i32 @fclose(%struct._IO_FILE* %4)
+Adding to storeSet   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet 
+declare dso_local i32 @fclose(%struct._IO_FILE*) #1
+
+fopen
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+Already processed:   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Backward dp size:0
+dfs_rec
+Going backward on :   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) Node: 0x55a6235cf370 Function: parse
+GLOBAL: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+0x55a6235cbc80
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+is external call 
+declare dso_local %struct._IO_FILE* @fopen(i8*, i8*) #1
+
+Adding root to output
+Data: 0x55a623629e90
+1size
+  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4d80 Function: parse
+Node: 0x55a6235d4d80 Size: 1
+dfs_rec
+Going backward on :   %2 = alloca [1024 x i8], align 16 Node: 0x55a6235cf2e0 Function: parse
+Adding root to output
+Node: 0x55a6235cf2e0 Size: 0
+Data: 0x55a623629ed0
+1size
+  %2 = alloca [1024 x i8], align 16 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) Node: 0x55a6235d7cc0 Function: parse
+is external call 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+Adding root to output
+Node: 0x55a6235d7cc0 Size: 1
+dfs_rec
+Going backward on :   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4d80 Function: parse
+Data: 0x55a62362a400
+1size
+  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) Node: 0x55a6235d7d50 Function: parse
+is external call 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+Adding root to output
+Node: 0x55a6235d7d50 Size: 1
+dfs_rec
+Going backward on :   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4d80 Function: parse
+Data: 0x55a62362a560
+1size
+  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) here
+PROCESSING 0x55a6235d7d50 Size: 9  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+dfs_rec
+fgets
+Going forward on Instruction:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) in function parse
+fgets
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+Already processed:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+PROCESSING 0x55a6235d7cc0 Size: 8  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+dfs_rec
+fgets
+Going forward on Instruction:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) in function parse
+fgets
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+Already processed:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+PROCESSING 0x55a6235cf2e0 Size: 7  %2 = alloca [1024 x i8], align 16
+dfs_rec
+Going forward on Instruction:   %2 = alloca [1024 x i8], align 16 in function parse
+forwardDfsLambda with return size: 4
+dfs_rec
+Going forward on Instruction:   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 in function parse
+call found
+   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+call with found true:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+Adding to storeSet   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+call found
+   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+call with found true:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+Adding to storeSet   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Adding to storeSet 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+forwardDfsLambda with return size: 2
+dfs_rec
+fgets
+Going forward on Instruction:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) in function parse
+fgets
+dfs_rec
+fgets
+Going forward on Instruction:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) in function parse
+fgets
+dfs_rec
+Going forward on Instruction:   %12 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 in function parse
+call found
+   %13 = call i8* @strchr(i8* %12, i32 35) #9
+call with found true:   %13 = call i8* @strchr(i8* %12, i32 35) #9
+Adding to storeSet   %12 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i8* @strchr(i8*, i32) #7
+
+forwardDfsLambda with return size: 1
+dfs_rec
+strchr
+Going forward on Instruction:   %13 = call i8* @strchr(i8* %12, i32 35) #9 in function parse
+strchr
+forwardDfsLambda with return size: 0
+dfs_rec
+Going forward on Instruction:   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 in function parse
+call found
+   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+call with found true:   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet   %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+forwardDfsLambda with return size: 0
+dfs_rec
+Going forward on Instruction:   %107 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 in function parse
+forwardDfsLambda with return size: 1
+dfs_rec
+
+; Function Attrs: noinline nounwind uwtable
+define dso_local void @info(i8*, ...) #0 {
+  %2 = alloca [1 x %struct.__va_list_tag], align 16
+  %3 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x %struct.__va_list_tag]* %2, i32 0, i32 0
+  %4 = bitcast %struct.__va_list_tag* %3 to i8*
+  call void @llvm.va_start(i8* %4)
+  %5 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x %struct.__va_list_tag]* %2, i32 0, i32 0
+  call void @log_printf(i32 6, i8* %0, %struct.__va_list_tag* %5)
+  %6 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x %struct.__va_list_tag]* %2, i32 0, i32 0
+  %7 = bitcast %struct.__va_list_tag* %6 to i8*
+  call void @llvm.va_end(i8* %7)
+  ret void
+}
+ phinode
+
+PHINode inst: 
+; Function Attrs: noinline nounwind uwtable
+define dso_local void @info(i8*, ...) #0 {
+  %2 = alloca [1 x %struct.__va_list_tag], align 16
+  %3 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x %struct.__va_list_tag]* %2, i32 0, i32 0
+  %4 = bitcast %struct.__va_list_tag* %3 to i8*
+  call void @llvm.va_start(i8* %4)
+  %5 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x %struct.__va_list_tag]* %2, i32 0, i32 0
+  call void @log_printf(i32 6, i8* %0, %struct.__va_list_tag* %5)
+  %6 = getelementptr inbounds [1 x %struct.__va_list_tag], [1 x %struct.__va_list_tag]* %2, i32 0, i32 0
+  %7 = bitcast %struct.__va_list_tag* %6 to i8*
+  call void @llvm.va_end(i8* %7)
+  ret void
+}
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   call void (i8*, ...) @info(i8* %25, i64 %20, i64 %21, i64 %22, i64 %23, i64 %24)
+User :   call void (i8*, ...) @info(i8* %19)
+User :   call void (i8*, ...) @info(i8* %18, i64 %13, i64 %14, i64 %15, i64 %16, i64 %17)
+User :   call void (i8*, ...) @info(i8* %12)
+User :   call void (i8*, ...) @info(i8* %108, i8* %107)
+info
+info
+info
+info
+info
+User :   %107 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+User :   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+User :   %12 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+User :   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+User :   call void (i8*, ...) @info(i8* %108, i8* %107)
+info
+User :   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+strtok
+User :   %22 = icmp ne i8* %19, null
+User :   %30 = call i32 @strcmp(i8* %19, i8* %29) #9
+User :   %36 = call i32 @strcmp(i8* %19, i8* %35) #9
+User :   %43 = call i32 @strcmp(i8* %19, i8* %42) #9
+User :   %50 = call i32 @strcmp(i8* %19, i8* %49) #9
+User :   %56 = call i32 @strcmp(i8* %19, i8* %55) #9
+User :   %63 = call i32 @strcmp(i8* %19, i8* %62) #9
+User :   %70 = call i32 @strcmp(i8* %19, i8* %69) #9
+User :   %77 = call i32 @strcmp(i8* %19, i8* %76) #9
+User :   %83 = call i32 @strcmp(i8* %19, i8* %82) #9
+User :   %90 = call i32 @strcmp(i8* %19, i8* %89) #9
+User :   %96 = call i32 @strcmp(i8* %19, i8* %95) #9
+User :   %102 = call i32 @strcmp(i8* %19, i8* %101) #9
+User :   br i1 %22, label %23, label %25
+strcmp
+User :   %31 = icmp ne i32 %30, 0
+User :   br i1 %31, label %34, label %32
+strcmp
+User :   %37 = icmp ne i32 %36, 0
+User :   br i1 %37, label %41, label %38
+strcmp
+User :   %44 = icmp ne i32 %43, 0
+User :   br i1 %44, label %48, label %45
+strcmp
+User :   %51 = icmp ne i32 %50, 0
+User :   br i1 %51, label %54, label %52
+strcmp
+User :   %57 = icmp ne i32 %56, 0
+User :   br i1 %57, label %61, label %58
+strcmp
+User :   %64 = icmp ne i32 %63, 0
+User :   br i1 %64, label %68, label %65
+strcmp
+User :   %71 = icmp ne i32 %70, 0
+User :   br i1 %71, label %75, label %72
+strcmp
+User :   %78 = icmp ne i32 %77, 0
+User :   br i1 %78, label %81, label %79
+strcmp
+User :   %84 = icmp ne i32 %83, 0
+User :   br i1 %84, label %88, label %85
+strcmp
+User :   %91 = icmp ne i32 %90, 0
+User :   br i1 %91, label %94, label %92
+strcmp
+User :   %97 = icmp ne i32 %96, 0
+User :   br i1 %97, label %100, label %98
+strcmp
+User :   %103 = icmp ne i32 %102, 0
+User :   br i1 %103, label %106, label %104
+User :   %13 = call i8* @strchr(i8* %12, i32 35) #9
+strchr
+User :   store i8 0, i8* %13, align 1
+User :   %14 = icmp ne i8* %13, null
+User :   br i1 %14, label %15, label %16
+User :   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+User :   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+fgets
+fgets
+Already processed:   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Already processed:   %12 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Already processed:   %13 = call i8* @strchr(i8* %12, i32 35) #9
+Already processed:   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Already processed:   %107 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+  %30 = call i32 @strcmp(i8* %19, i8* %29) #9 getting uses of scalar 
+  %36 = call i32 @strcmp(i8* %19, i8* %35) #9 getting uses of scalar 
+  %43 = call i32 @strcmp(i8* %19, i8* %42) #9 getting uses of scalar 
+  %50 = call i32 @strcmp(i8* %19, i8* %49) #9 getting uses of scalar 
+  %56 = call i32 @strcmp(i8* %19, i8* %55) #9 getting uses of scalar 
+  %63 = call i32 @strcmp(i8* %19, i8* %62) #9 getting uses of scalar 
+  %70 = call i32 @strcmp(i8* %19, i8* %69) #9 getting uses of scalar 
+  %77 = call i32 @strcmp(i8* %19, i8* %76) #9 getting uses of scalar 
+  %83 = call i32 @strcmp(i8* %19, i8* %82) #9 getting uses of scalar 
+  %90 = call i32 @strcmp(i8* %19, i8* %89) #9 getting uses of scalar 
+  %96 = call i32 @strcmp(i8* %19, i8* %95) #9 getting uses of scalar 
+  %102 = call i32 @strcmp(i8* %19, i8* %101) #9 getting uses of scalar 
+  call void (i8*, ...) @info(i8* %108, i8* %107) getting uses of scalar 
+  call void (i8*, ...) @info(i8* %12) getting uses of scalar 
+  call void (i8*, ...) @info(i8* %18, i64 %13, i64 %14, i64 %15, i64 %16, i64 %17) getting uses of scalar 
+  call void (i8*, ...) @info(i8* %19) getting uses of scalar 
+  call void (i8*, ...) @info(i8* %25, i64 %20, i64 %21, i64 %22, i64 %23, i64 %24) getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) Node: 0x55a6235cf370 Function: parse
+GLOBAL: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+0x55a6235cbc80
+Const Value: @.str.44 = private unnamed_addr constant [2 x i8] c"r\00", align 1
+ValNode: 132
+is external call 
+declare dso_local %struct._IO_FILE* @fopen(i8*, i8*) #1
+
+Adding root to output
+Data: 0x55a62361d590
+1size
+  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Node: 0x55a6235cf520 Size: 0
+Data: 0x55a62361acb0
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %8 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4d80 Function: parse
+Data: 0x55a62361acf0
+0size
+Backward dp size:0
+dfs_rec
+Going backward on :   %12 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4e10 Function: parse
+Node: 0x55a6235d4e10 Size: 1
+dfs_rec
+Going backward on :   %2 = alloca [1024 x i8], align 16 Node: 0x55a6235cf2e0 Function: parse
+Adding root to output
+Data: 0x55a62361ad30
+1size
+  %2 = alloca [1024 x i8], align 16 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4ea0 Function: parse
+Node: 0x55a6235d4ea0 Size: 1
+dfs_rec
+Going backward on :   %2 = alloca [1024 x i8], align 16 Node: 0x55a6235cf2e0 Function: parse
+Adding root to output
+Data: 0x55a623642420
+1size
+  %2 = alloca [1024 x i8], align 16 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) Node: 0x55a6235d7cc0 Function: parse
+is external call 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+Adding root to output
+Data: 0x55a6236424a0
+1size
+  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) Node: 0x55a6235d7d50 Function: parse
+is external call 
+declare dso_local i8* @fgets(i8*, i32, %struct._IO_FILE*) #1
+
+Adding root to output
+Data: 0x55a6236424e0
+1size
+  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) here
+Backward dp size:0
+dfs_rec
+Going backward on :   %13 = call i8* @strchr(i8* %12, i32 35) #9 Node: 0x55a6235d7de0 Function: parse
+is external call 
+; Function Attrs: nounwind readonly
+declare dso_local i8* @strchr(i8*, i32) #7
+
+Adding root to output
+Node: 0x55a6235d7de0 Size: 1
+dfs_rec
+Going backward on :   %12 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4e10 Function: parse
+Data: 0x55a623642520
+1size
+  %13 = call i8* @strchr(i8* %12, i32 35) #9 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0 Node: 0x55a6235d9730 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+Adding root to output
+Node: 0x55a6235d9730 Size: 1
+dfs_rec
+Node: 0x55a6235cbd10 Size: 0
+Data: 0x55a6236425a0
+1size
+  %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0 here
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+PROCESSING 0x55a6235cbd10 Size: 17
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0 in function parse
+call found
+   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+call with found true:   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0
+Adding to storeSet   %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623642760
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %17 = getelementptr inbounds [1024 x i8], [1024 x i8]* %2, i32 0, i32 0 Node: 0x55a6235d4ea0 Function: parse
+Data: 0x55a6236427a0
+0size
+Backward dp size:0
+dfs_rec
+Going backward on :   %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0 Node: 0x55a6235d9730 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+Adding root to output
+Data: 0x55a6236427e0
+1size
+  %18 = getelementptr [4 x i8], [4 x i8]* @.str.1.45, i32 0, i32 0 here
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+PROCESSING 0x55a6235cf520 Size: 18  %19 = call i8* @strtok(i8* %17, i8* %18) #8
+dfs_rec
+strtok
+Going forward on Instruction:   %19 = call i8* @strtok(i8* %17, i8* %18) #8 in function parse
+call found
+   %30 = call i32 @strcmp(i8* %19, i8* %29) #9
+call with found true:   %30 = call i32 @strcmp(i8* %19, i8* %29) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %36 = call i32 @strcmp(i8* %19, i8* %35) #9
+call with found true:   %36 = call i32 @strcmp(i8* %19, i8* %35) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %43 = call i32 @strcmp(i8* %19, i8* %42) #9
+call with found true:   %43 = call i32 @strcmp(i8* %19, i8* %42) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %50 = call i32 @strcmp(i8* %19, i8* %49) #9
+call with found true:   %50 = call i32 @strcmp(i8* %19, i8* %49) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %56 = call i32 @strcmp(i8* %19, i8* %55) #9
+call with found true:   %56 = call i32 @strcmp(i8* %19, i8* %55) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %63 = call i32 @strcmp(i8* %19, i8* %62) #9
+call with found true:   %63 = call i32 @strcmp(i8* %19, i8* %62) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %70 = call i32 @strcmp(i8* %19, i8* %69) #9
+call with found true:   %70 = call i32 @strcmp(i8* %19, i8* %69) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %77 = call i32 @strcmp(i8* %19, i8* %76) #9
+call with found true:   %77 = call i32 @strcmp(i8* %19, i8* %76) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %83 = call i32 @strcmp(i8* %19, i8* %82) #9
+call with found true:   %83 = call i32 @strcmp(i8* %19, i8* %82) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %90 = call i32 @strcmp(i8* %19, i8* %89) #9
+call with found true:   %90 = call i32 @strcmp(i8* %19, i8* %89) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %96 = call i32 @strcmp(i8* %19, i8* %95) #9
+call with found true:   %96 = call i32 @strcmp(i8* %19, i8* %95) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+call found
+   %102 = call i32 @strcmp(i8* %19, i8* %101) #9
+call with found true:   %102 = call i32 @strcmp(i8* %19, i8* %101) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+strtok
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+Already processed:   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623642c40
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0 Node: 0x55a6235d9850 Function: parse
+GLOBAL: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1Const Value: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1
+ValNode: 138
+0x55a6235cbe30
+Const Value: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1
+ValNode: 138
+Adding root to output
+Node: 0x55a6235d9850 Size: 1
+dfs_rec
+Node: 0x55a6235cbe30 Size: 0
+Data: 0x55a623642c80
+1size
+  %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0 here
+Const Value: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1
+ValNode: 138
+Backward dp size:0
+dfs_rec
+Going backward on :   %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0 Node: 0x55a6235d98e0 Function: parse
+GLOBAL: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1Const Value: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1
+ValNode: 140
+0x55a6235cbec0
+Const Value: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1
+ValNode: 140
+Adding root to output
+Node: 0x55a6235d98e0 Size: 1
+dfs_rec
+Node: 0x55a6235cbec0 Size: 0
+Data: 0x55a623642dc0
+1size
+  %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0 here
+Const Value: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1
+ValNode: 140
+Backward dp size:0
+dfs_rec
+Going backward on :   %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0 Node: 0x55a6235d9970 Function: parse
+GLOBAL: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1Const Value: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1
+ValNode: 142
+0x55a6235cbf50
+Const Value: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1
+ValNode: 142
+Adding root to output
+Node: 0x55a6235d9970 Size: 1
+dfs_rec
+Node: 0x55a6235cbf50 Size: 0
+Data: 0x55a623642f00
+1size
+  %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0 here
+Const Value: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1
+ValNode: 142
+Backward dp size:0
+dfs_rec
+Going backward on :   %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0 Node: 0x55a6235d9a00 Function: parse
+GLOBAL: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1Const Value: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1
+ValNode: 144
+0x55a6235cbfe0
+Const Value: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1
+ValNode: 144
+Adding root to output
+Node: 0x55a6235d9a00 Size: 1
+dfs_rec
+Node: 0x55a6235cbfe0 Size: 0
+Data: 0x55a623643040
+1size
+  %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0 here
+Const Value: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1
+ValNode: 144
+Backward dp size:0
+dfs_rec
+Going backward on :   %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0 Node: 0x55a6235d9a90 Function: parse
+GLOBAL: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1Const Value: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1
+ValNode: 146
+0x55a6235cc070
+Const Value: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1
+ValNode: 146
+Adding root to output
+Node: 0x55a6235d9a90 Size: 1
+dfs_rec
+Node: 0x55a6235cc070 Size: 0
+Data: 0x55a623643180
+1size
+  %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0 here
+Const Value: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1
+ValNode: 146
+Backward dp size:0
+dfs_rec
+Going backward on :   %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0 Node: 0x55a6235d9b20 Function: parse
+GLOBAL: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1Const Value: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1
+ValNode: 148
+0x55a6235cc100
+Const Value: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1
+ValNode: 148
+Adding root to output
+Node: 0x55a6235d9b20 Size: 1
+dfs_rec
+Node: 0x55a6235cc100 Size: 0
+Data: 0x55a6236432c0
+1size
+  %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0 here
+Const Value: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1
+ValNode: 148
+Backward dp size:0
+dfs_rec
+Going backward on :   %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0 Node: 0x55a6235d9bb0 Function: parse
+GLOBAL: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1Const Value: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1
+ValNode: 150
+0x55a6235cc190
+Const Value: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1
+ValNode: 150
+Adding root to output
+Node: 0x55a6235d9bb0 Size: 1
+dfs_rec
+Node: 0x55a6235cc190 Size: 0
+Data: 0x55a623643400
+1size
+  %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0 here
+Const Value: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1
+ValNode: 150
+Backward dp size:0
+dfs_rec
+Going backward on :   %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0 Node: 0x55a6235d9c40 Function: parse
+GLOBAL: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1Const Value: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1
+ValNode: 152
+0x55a6235cc220
+Const Value: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1
+ValNode: 152
+Adding root to output
+Node: 0x55a6235d9c40 Size: 1
+dfs_rec
+Node: 0x55a6235cc220 Size: 0
+Data: 0x55a623643540
+1size
+  %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0 here
+Const Value: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1
+ValNode: 152
+Backward dp size:0
+dfs_rec
+Going backward on :   %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0 Node: 0x55a6235d9cd0 Function: parse
+GLOBAL: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1Const Value: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+ValNode: 154
+0x55a6235cc2b0
+Const Value: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+ValNode: 154
+Adding root to output
+Node: 0x55a6235d9cd0 Size: 1
+dfs_rec
+Node: 0x55a6235cc2b0 Size: 0
+Data: 0x55a623643680
+1size
+  %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0 here
+Const Value: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+ValNode: 154
+Backward dp size:0
+dfs_rec
+Going backward on :   %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0 Node: 0x55a6235d9d60 Function: parse
+GLOBAL: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1Const Value: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1
+ValNode: 156
+0x55a6235cc340
+Const Value: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1
+ValNode: 156
+Adding root to output
+Node: 0x55a6235d9d60 Size: 1
+dfs_rec
+Node: 0x55a6235cc340 Size: 0
+Data: 0x55a6236437c0
+1size
+  %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0 here
+Const Value: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1
+ValNode: 156
+Backward dp size:0
+dfs_rec
+Going backward on :   %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0 Node: 0x55a6235d9df0 Function: parse
+GLOBAL: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1Const Value: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+ValNode: 158
+0x55a6235cc3d0
+Const Value: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+ValNode: 158
+Adding root to output
+Node: 0x55a6235d9df0 Size: 1
+dfs_rec
+Node: 0x55a6235cc3d0 Size: 0
+Data: 0x55a623643900
+1size
+  %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0 here
+Const Value: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+ValNode: 158
+Backward dp size:0
+dfs_rec
+Going backward on :   %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0 Node: 0x55a6235d9e80 Function: parse
+GLOBAL: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1Const Value: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
+ValNode: 160
+0x55a6235cc460
+Const Value: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
+ValNode: 160
+Adding root to output
+Node: 0x55a6235d9e80 Size: 1
+dfs_rec
+Node: 0x55a6235cc460 Size: 0
+Data: 0x55a623643a40
+1size
+  %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0 here
+Const Value: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
+ValNode: 160
+PROCESSING 0x55a6235cc460 Size: 43
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0 in function parse
+call found
+   %102 = call i32 @strcmp(i8* %19, i8* %101) #9
+call with found true:   %102 = call i32 @strcmp(i8* %19, i8* %101) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %102 = call i32 @strcmp(i8* %19, i8* %101) #9
+  %102 = call i32 @strcmp(i8* %19, i8* %101) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623643c60
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0 Node: 0x55a6235d9e80 Function: parse
+GLOBAL: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1Const Value: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
+ValNode: 160
+0x55a6235cc460
+Const Value: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
+ValNode: 160
+Adding root to output
+Data: 0x55a623643ca0
+1size
+  %101 = getelementptr [9 x i8], [9 x i8]* @.str.14.58, i32 0, i32 0 here
+Const Value: @.str.14.58 = private unnamed_addr constant [9 x i8] c"internal\00", align 1
+ValNode: 160
+PROCESSING 0x55a6235cc3d0 Size: 41
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0 in function parse
+call found
+   %96 = call i32 @strcmp(i8* %19, i8* %95) #9
+call with found true:   %96 = call i32 @strcmp(i8* %19, i8* %95) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %96 = call i32 @strcmp(i8* %19, i8* %95) #9
+  %96 = call i32 @strcmp(i8* %19, i8* %95) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623643fc0
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0 Node: 0x55a6235d9df0 Function: parse
+GLOBAL: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1Const Value: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+ValNode: 158
+0x55a6235cc3d0
+Const Value: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+ValNode: 158
+Adding root to output
+Data: 0x55a623644000
+1size
+  %95 = getelementptr [5 x i8], [5 x i8]* @.str.13.57, i32 0, i32 0 here
+Const Value: @.str.13.57 = private unnamed_addr constant [5 x i8] c"user\00", align 1
+ValNode: 158
+PROCESSING 0x55a6235cc340 Size: 39
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0 in function parse
+call found
+   %90 = call i32 @strcmp(i8* %19, i8* %89) #9
+call with found true:   %90 = call i32 @strcmp(i8* %19, i8* %89) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %90 = call i32 @strcmp(i8* %19, i8* %89) #9
+  %90 = call i32 @strcmp(i8* %19, i8* %89) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623644320
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0 Node: 0x55a6235d9d60 Function: parse
+GLOBAL: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1Const Value: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1
+ValNode: 156
+0x55a6235cc340
+Const Value: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1
+ValNode: 156
+Adding root to output
+Data: 0x55a623644360
+1size
+  %89 = getelementptr [7 x i8], [7 x i8]* @.str.12.56, i32 0, i32 0 here
+Const Value: @.str.12.56 = private unnamed_addr constant [7 x i8] c"chroot\00", align 1
+ValNode: 156
+PROCESSING 0x55a6235cc2b0 Size: 37
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0 in function parse
+call found
+   %83 = call i32 @strcmp(i8* %19, i8* %82) #9
+call with found true:   %83 = call i32 @strcmp(i8* %19, i8* %82) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %83 = call i32 @strcmp(i8* %19, i8* %82) #9
+  %83 = call i32 @strcmp(i8* %19, i8* %82) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623644680
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0 Node: 0x55a6235d9cd0 Function: parse
+GLOBAL: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1Const Value: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+ValNode: 154
+0x55a6235cc2b0
+Const Value: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+ValNode: 154
+Adding root to output
+Data: 0x55a6236446c0
+1size
+  %82 = getelementptr [5 x i8], [5 x i8]* @.str.11.55, i32 0, i32 0 here
+Const Value: @.str.11.55 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+ValNode: 154
+PROCESSING 0x55a6235cc220 Size: 35
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0 in function parse
+call found
+   %77 = call i32 @strcmp(i8* %19, i8* %76) #9
+call with found true:   %77 = call i32 @strcmp(i8* %19, i8* %76) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %77 = call i32 @strcmp(i8* %19, i8* %76) #9
+  %77 = call i32 @strcmp(i8* %19, i8* %76) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a6236449e0
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0 Node: 0x55a6235d9c40 Function: parse
+GLOBAL: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1Const Value: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1
+ValNode: 152
+0x55a6235cc220
+Const Value: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1
+ValNode: 152
+Adding root to output
+Data: 0x55a623644a20
+1size
+  %76 = getelementptr [7 x i8], [7 x i8]* @.str.10.54, i32 0, i32 0 here
+Const Value: @.str.10.54 = private unnamed_addr constant [7 x i8] c"listen\00", align 1
+ValNode: 152
+PROCESSING 0x55a6235cc190 Size: 33
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0 in function parse
+call found
+   %70 = call i32 @strcmp(i8* %19, i8* %69) #9
+call with found true:   %70 = call i32 @strcmp(i8* %19, i8* %69) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %70 = call i32 @strcmp(i8* %19, i8* %69) #9
+  %70 = call i32 @strcmp(i8* %19, i8* %69) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623644d40
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0 Node: 0x55a6235d9bb0 Function: parse
+GLOBAL: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1Const Value: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1
+ValNode: 150
+0x55a6235cc190
+Const Value: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1
+ValNode: 150
+Adding root to output
+Data: 0x55a623644d80
+1size
+  %69 = getelementptr [11 x i8], [11 x i8]* @.str.9.53, i32 0, i32 0 here
+Const Value: @.str.9.53 = private unnamed_addr constant [11 x i8] c"statistics\00", align 1
+ValNode: 150
+PROCESSING 0x55a6235cc100 Size: 31
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0 in function parse
+call found
+   %63 = call i32 @strcmp(i8* %19, i8* %62) #9
+call with found true:   %63 = call i32 @strcmp(i8* %19, i8* %62) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %63 = call i32 @strcmp(i8* %19, i8* %62) #9
+  %63 = call i32 @strcmp(i8* %19, i8* %62) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a6236450a0
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0 Node: 0x55a6235d9b20 Function: parse
+GLOBAL: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1Const Value: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1
+ValNode: 148
+0x55a6235cc100
+Const Value: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1
+ValNode: 148
+Adding root to output
+Data: 0x55a6236450e0
+1size
+  %62 = getelementptr [15 x i8], [15 x i8]* @.str.8.52, i32 0, i32 0 here
+Const Value: @.str.8.52 = private unnamed_addr constant [15 x i8] c"recursive-port\00", align 1
+ValNode: 148
+PROCESSING 0x55a6235cc070 Size: 29
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0 in function parse
+call found
+   %56 = call i32 @strcmp(i8* %19, i8* %55) #9
+call with found true:   %56 = call i32 @strcmp(i8* %19, i8* %55) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %56 = call i32 @strcmp(i8* %19, i8* %55) #9
+  %56 = call i32 @strcmp(i8* %19, i8* %55) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623645400
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0 Node: 0x55a6235d9a90 Function: parse
+GLOBAL: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1Const Value: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1
+ValNode: 146
+0x55a6235cc070
+Const Value: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1
+ValNode: 146
+Adding root to output
+Data: 0x55a623645440
+1size
+  %55 = getelementptr [18 x i8], [18 x i8]* @.str.7.51, i32 0, i32 0 here
+Const Value: @.str.7.51 = private unnamed_addr constant [18 x i8] c"recursive-timeout\00", align 1
+ValNode: 146
+PROCESSING 0x55a6235cbfe0 Size: 27
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0 in function parse
+call found
+   %50 = call i32 @strcmp(i8* %19, i8* %49) #9
+call with found true:   %50 = call i32 @strcmp(i8* %19, i8* %49) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %50 = call i32 @strcmp(i8* %19, i8* %49) #9
+  %50 = call i32 @strcmp(i8* %19, i8* %49) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623645760
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0 Node: 0x55a6235d9a00 Function: parse
+GLOBAL: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1Const Value: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1
+ValNode: 144
+0x55a6235cbfe0
+Const Value: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1
+ValNode: 144
+Adding root to output
+Data: 0x55a6236457a0
+1size
+  %49 = getelementptr [10 x i8], [10 x i8]* @.str.6.50, i32 0, i32 0 here
+Const Value: @.str.6.50 = private unnamed_addr constant [10 x i8] c"recursive\00", align 1
+ValNode: 144
+PROCESSING 0x55a6235cbf50 Size: 25
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0 in function parse
+call found
+   %43 = call i32 @strcmp(i8* %19, i8* %42) #9
+call with found true:   %43 = call i32 @strcmp(i8* %19, i8* %42) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %43 = call i32 @strcmp(i8* %19, i8* %42) #9
+  %43 = call i32 @strcmp(i8* %19, i8* %42) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623645ac0
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0 Node: 0x55a6235d9970 Function: parse
+GLOBAL: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1Const Value: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1
+ValNode: 142
+0x55a6235cbf50
+Const Value: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1
+ValNode: 142
+Adding root to output
+Data: 0x55a623645b00
+1size
+  %42 = getelementptr [19 x i8], [19 x i8]* @.str.5.49, i32 0, i32 0 here
+Const Value: @.str.5.49 = private unnamed_addr constant [19 x i8] c"authoritative-port\00", align 1
+ValNode: 142
+PROCESSING 0x55a6235cbec0 Size: 23
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0 in function parse
+call found
+   %36 = call i32 @strcmp(i8* %19, i8* %35) #9
+call with found true:   %36 = call i32 @strcmp(i8* %19, i8* %35) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %36 = call i32 @strcmp(i8* %19, i8* %35) #9
+  %36 = call i32 @strcmp(i8* %19, i8* %35) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623645e20
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0 Node: 0x55a6235d98e0 Function: parse
+GLOBAL: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1Const Value: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1
+ValNode: 140
+0x55a6235cbec0
+Const Value: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1
+ValNode: 140
+Adding root to output
+Data: 0x55a623645e60
+1size
+  %35 = getelementptr [22 x i8], [22 x i8]* @.str.4.48, i32 0, i32 0 here
+Const Value: @.str.4.48 = private unnamed_addr constant [22 x i8] c"authoritative-timeout\00", align 1
+ValNode: 140
+PROCESSING 0x55a6235cbe30 Size: 21
+dfs_rec
+forwardDfsLambda with return size: 1
+dfs_rec
+Going forward on Instruction:   %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0 in function parse
+call found
+   %30 = call i32 @strcmp(i8* %19, i8* %29) #9
+call with found true:   %30 = call i32 @strcmp(i8* %19, i8* %29) #9
+Adding to storeSet   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Adding to storeSet   %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0
+Adding to storeSet 
+; Function Attrs: nounwind readonly
+declare dso_local i32 @strcmp(i8*, i8*) #7
+
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+User :   %30 = call i32 @strcmp(i8* %19, i8* %29) #9
+  %30 = call i32 @strcmp(i8* %19, i8* %29) #9 getting uses of scalar 
+Backward dp size:0
+dfs_rec
+Going backward on :   %19 = call i8* @strtok(i8* %17, i8* %18) #8 Node: 0x55a6235cf520 Function: parse
+GLOBAL: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+0x55a6235cbd10
+Const Value: @.str.1.45 = private unnamed_addr constant [4 x i8] c" \09=\00", align 1
+ValNode: 134
+is external call 
+; Function Attrs: nounwind
+declare dso_local i8* @strtok(i8*, i8*) #2
+
+Adding root to output
+Data: 0x55a623646180
+1size
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 here
+Backward dp size:0
+dfs_rec
+Going backward on :   %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0 Node: 0x55a6235d9850 Function: parse
+GLOBAL: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1Const Value: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1
+ValNode: 138
+0x55a6235cbe30
+Const Value: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1
+ValNode: 138
+Adding root to output
+Data: 0x55a6236461c0
+1size
+  %29 = getelementptr [14 x i8], [14 x i8]* @.str.3.47, i32 0, i32 0 here
+Const Value: @.str.3.47 = private unnamed_addr constant [14 x i8] c"authoritative\00", align 1
+ValNode: 138
+PROCESSING 0x55a6235d7de0 Size: 15  %13 = call i8* @strchr(i8* %12, i32 35) #9
+dfs_rec
+strchr
+Going forward on Instruction:   %13 = call i8* @strchr(i8* %12, i32 35) #9 in function parse
+strchr
+FINISHED FORWARD DFS
+PROCESSING 0x55a6235cfe20 Size: 0
+dfs_rec
+forwardDfsLambda with return size: 0
+FINISHED FORWARD DFS
+WorkList has ended...
+Tracked Branches size: 0
+Printing loops 
+markedLoops size: 2
+
+
+MARKED LOOPS: 2
+Printing stats: 
+statMapSize: 6
+StatMap iter...
+kv.first:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+Current Value:   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) in function parse
+Printing loads for value  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4). Size: 0
+Printing stores for value  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4). Size: 0
+Printing branches for value  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4). Size: 0
+Inserted   %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)into statValues
+StatMap iter...
+kv.first:   %2 = alloca [1024 x i8], align 16
+Current Value:   %2 = alloca [1024 x i8], align 16 in function parse
+Printing loads for value  %2 = alloca [1024 x i8], align 16. Size: 0
+Printing stores for value  %2 = alloca [1024 x i8], align 16. Size: 1
+           Value:   store i8 0, i8* %13, align 1 in Function: parse
+Printing branches for value  %2 = alloca [1024 x i8], align 16. Size: 14
+           Value:   br i1 %14, label %15, label %16 in Function: parse
+           Value:   br i1 %22, label %23, label %25 in Function: parse
+           Value:   br i1 %31, label %34, label %32 in Function: parse
+           Value:   br i1 %37, label %41, label %38 in Function: parse
+           Value:   br i1 %44, label %48, label %45 in Function: parse
+           Value:   br i1 %51, label %54, label %52 in Function: parse
+           Value:   br i1 %57, label %61, label %58 in Function: parse
+           Value:   br i1 %64, label %68, label %65 in Function: parse
+           Value:   br i1 %71, label %75, label %72 in Function: parse
+           Value:   br i1 %78, label %81, label %79 in Function: parse
+           Value:   br i1 %84, label %88, label %85 in Function: parse
+           Value:   br i1 %91, label %94, label %92 in Function: parse
+           Value:   br i1 %97, label %100, label %98 in Function: parse
+           Value:   br i1 %103, label %106, label %104 in Function: parse
+Inserted   %2 = alloca [1024 x i8], align 16into statValues
+StatMap iter...
+kv.first:   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)
+Current Value:   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) in function parse
+Printing loads for value  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3). Size: 0
+Printing stores for value  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3). Size: 0
+Printing branches for value  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3). Size: 0
+Inserted   %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3)into statValues
+StatMap iter...
+kv.first:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)
+Current Value:   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) in function parse
+Printing loads for value  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4). Size: 0
+Printing stores for value  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4). Size: 0
+Printing branches for value  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4). Size: 0
+Inserted   %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4)into statValues
+StatMap iter...
+kv.first:   %13 = call i8* @strchr(i8* %12, i32 35) #9
+Current Value:   %13 = call i8* @strchr(i8* %12, i32 35) #9 in function parse
+Printing loads for value  %13 = call i8* @strchr(i8* %12, i32 35) #9. Size: 0
+Printing stores for value  %13 = call i8* @strchr(i8* %12, i32 35) #9. Size: 0
+Printing branches for value  %13 = call i8* @strchr(i8* %12, i32 35) #9. Size: 0
+Inserted   %13 = call i8* @strchr(i8* %12, i32 35) #9into statValues
+StatMap iter...
+kv.first:   %19 = call i8* @strtok(i8* %17, i8* %18) #8
+Current Value:   %19 = call i8* @strtok(i8* %17, i8* %18) #8 in function parse
+Printing loads for value  %19 = call i8* @strtok(i8* %17, i8* %18) #8. Size: 0
+Printing stores for value  %19 = call i8* @strtok(i8* %17, i8* %18) #8. Size: 0
+Printing branches for value  %19 = call i8* @strtok(i8* %17, i8* %18) #8. Size: 0
+Inserted   %19 = call i8* @strtok(i8* %17, i8* %18) #8into statValues
+SIZE22
+Sorted Values
+  %19 = call i8* @strtok(i8* %17, i8* %18) #8 with value: 0
+Is value in tracked allocas? : 1
+  %13 = call i8* @strchr(i8* %12, i32 35) #9 with value: 0
+Is value in tracked allocas? : 1
+  %26 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) with value: 0
+Is value in tracked allocas? : 1
+  %4 = call %struct._IO_FILE* @fopen(i8* %0, i8* %3) with value: 0
+Is value in tracked allocas? : 1
+  %2 = alloca [1024 x i8], align 16 with value: 0
+Is value in tracked allocas? : 1
+  %9 = call i8* @fgets(i8* %8, i32 1024, %struct._IO_FILE* %4) with value: 0
+Is value in tracked allocas? : 1
+Total Tracked Variables: 6
+TRACKED ALLOCAS SIZE : 22
+
+===== Stats =====
+# Number of Config Variables being tracked: 6
+# Tracked number size: 6
+# Total Nodes in PAG: 1588
+# Total StmtNodes (PAGEdge): 1160
+# Total Globals: 0
+0dnsproxy
+-c
+dnsproxy.conf
+creating global for dnsproxy
+creating global for -c
+creating global for dnsproxy.conf
+creating argv_new
+@__argv_new__ = global i8** null, !track !0
+dnsproxy 0
+-c 1
+dnsproxy.conf 2
+Specialize-args pass completed...

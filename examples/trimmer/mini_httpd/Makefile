@@ -8,15 +8,12 @@ MINI_HTTPD_MANIFEST=${MINI_HTTPD}.manifest
 MINI_HTTPD_PATCH=mini_httpd.patch
 MINI_HTTPD_CONF=./mini_httpd.conf
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
 
 OUT_DIR?=trimmer
 LOG_FILE?=logs
 
-BITCODE_WRAPPER?=gclang
-BITCODE_EXTRACT?=get-bc
+BITCODE_WRAPPER?=wllvm
+BITCODE_EXTRACT?=extract-bc
 
 all: ${MINI_HTTPD_BITCODE}
 
@@ -25,7 +22,6 @@ mini: ${OUT_DIR}
 	cp ${MINI_HTTPD_CONF} ${OUT_DIR}
 	cd ${OUT_DIR} && \echo '{"binary": "mini_httpd_fin", "native_libs": [], "name": "mini_httpd", "args": ["-C", "mini_httpd.conf"], "modules": [], "ldflags": ["-lcrypt"], "main": "mini_httpd.bc", "config_files": ["mini_httpd.conf"]}' > ${MINI_HTTPD_MANIFEST} && \
 	python ${TRIMMER_HOME}/tool/trimmer.py ${MINI_HTTPD_MANIFEST} ./work_dir 2> ${LOG_FILE}
-	mkdir ${OUT_DIR}/work_dir/workdir
 
 test_mini:
 	@echo "\t\tTesting Mini"
@@ -37,11 +33,11 @@ test_mini:
 
 	${MINI_HTTPD_NAME}/mini_httpd -C ${MINI_HTTPD_NAME}/mini_httpd.conf
 	wget 127.0.0.1:8199/ 
-	@cd ${OUT_DIR}/ && \
+	@cd ${OUT_DIR}/work_dir/ && \
 	echo '<HTML><HEAD><TITLE>Index of ./</TITLE></HEAD><BODY BGCOLOR="#99cc99" TEXT="#000000" LINK="#2020ff" VLINK="#4040cc"><H4>Index of ./</H4></HTML>' > workdir/index.html && \
 	./mini_httpd_fin  && \
 	wget 127.0.0.1:8087/
-	@cmp -s ./index.html ${OUT_DIR}/index.html; \
+	@cmp -s ./index.html ${OUT_DIR}/work_dir/index.html; \
 	RETVAL=$$?; \
 	if [ $$RETVAL -eq 0 ]; then \
 		echo "\tmini_httpd test baseline compare? Passed!"; \
@@ -50,8 +46,8 @@ test_mini:
 	fi
 
 
-${MINI_HTTPD_BITCODE}: ${MINI_HTTPD_NAME} 
-	cp ${MINI_HTTPD_PATCH} ${MINI_HTTPD_NAME} &&  \
+${MINI_HTTPD_BITCODE}: ${MINI_HTTPD_NAME}
+	cp ${MINI_HTTPD_PATCH} ${MINI_HTTPD_NAME} && \
 	cd ${MINI_HTTPD_NAME} && \
 	sed -i 's/CC =		gcc/CC? = gcc/g' ./Makefile && \
 	sed -i 's/-O/ -Xclang -disable-O0-optnone/g' ./Makefile && \
@@ -64,14 +60,11 @@ ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
 
 ${MINI_HTTPD_NAME}:
-	wget https://github.com/shoaibCS/TRIMMER-applications/raw/master/trimmer/mini_httpd/mini_httpd-1.19.tar.gz 
-	tar -xvf ./${MINI_HTTPD_TAR}
-${HELPER_SCRIPT}:
-	tar -xvf ./${HELPER_TAR}
+	tar -xvzf ./${MINI_HTTPD_TAR}
 
 clean:
-	rm -rf ${MINI_HTTPD_NAME} ${MINI_HTTPD_TAR}
-	rm -rf *.bc mini_httpd *slash* *manifest
-	rm -rf ${OUT_DIR}
-	rm -rf index.html*
-	rm -rf workdir
+	rm -r ${MINI_HTTPD_NAME}
+	rm *.bc
+	rm -r ${OUT_DIR}
+	rm index.html*
+	rm -r workdir

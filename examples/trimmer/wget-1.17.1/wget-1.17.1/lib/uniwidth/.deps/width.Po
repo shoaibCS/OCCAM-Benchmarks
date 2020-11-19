@@ -1,0 +1,79 @@
+uniwidth/width.o: uniwidth/width.c ../src/config.h uniwidth.h unitypes.h \
+  /home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/features.h /usr/include/stdc-predef.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/stddef.h \
+  /home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/__stddef_max_align_t.h \
+  localcharset.h uniwidth/cjk.h streq.h string.h /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h strings.h \
+  /usr/include/strings.h
+
+../src/config.h:
+
+uniwidth.h:
+
+unitypes.h:
+
+/home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/features.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/stddef.h:
+
+/home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/__stddef_max_align_t.h:
+
+localcharset.h:
+
+uniwidth/cjk.h:
+
+streq.h:
+
+string.h:
+
+/usr/include/string.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+strings.h:
+
+/usr/include/strings.h:

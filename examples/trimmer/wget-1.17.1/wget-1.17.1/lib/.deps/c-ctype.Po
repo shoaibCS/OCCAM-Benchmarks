@@ -1,0 +1,8 @@
+c-ctype.o: c-ctype.c ../src/config.h c-ctype.h \
+  /home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/stdbool.h
+
+../src/config.h:
+
+c-ctype.h:
+
+/home/user/LLVM/llvm-7.0.0.obj/lib/clang/7.0.0/include/stdbool.h:

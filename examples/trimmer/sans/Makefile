@@ -5,43 +5,48 @@ SANS_TAR=${SANS_NAME}.tar.gz
 
 SANS_MANIFEST=${SANS}.manifest
 
-HELPER_SCRIPT=./build.sh
-HELPER_TAR=helper_scripts_and_files.tar.gz
-
 OUT_DIR?=trimmer
 LOG_FILE?=logs
 
-BITCODE_WRAPPER?=gclang
-BITCODE_EXTRACT?=get-bc
+BITCODE_WRAPPER?=wllvm
+BITCODE_EXTRACT?=extract-bc
 
 all: ${SANS_BITCODE}
+
+real: ${OUT_DIR}
+	cp ${SANS_BITCODE} ${OUT_DIR} && \
+	cp sans_realdns.conf ${OUT_DIR} && \
+	cd ${OUT_DIR} && \
+	echo '{"binary": "sans_fin",  "native_libs": [], "name": "sans", "args": ["-c", "sans_realdns.conf"], "modules": [], "ldflags": [], "main": "sans.bc", "config_files":["sans_realdns.conf"] }' > ${SANS_MANIFEST} && \
+	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./real 2> ${LOG_FILE}
+
+
 
 udp: ${OUT_DIR}
 	cp ${SANS_BITCODE} ${OUT_DIR} && \
 	cp sans.conf ${OUT_DIR} && \
 	cd ${OUT_DIR} && \
 	echo '{"binary": "sans_fin",  "native_libs": [], "name": "sans", "args": ["-c", "sans.conf"], "modules": [], "ldflags": [], "main": "sans.bc", "config_files":["sans.conf"] }' > ${SANS_MANIFEST} && \
-	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./ 2> ${LOG_FILE}
+	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./udp 2> ${LOG_FILE}
 
 socks5: ${OUT_DIR}
 	cp ${SANS_BITCODE} ${OUT_DIR} && \
 	cp sans2.conf ${OUT_DIR} && \
 	cd ${OUT_DIR} && \
 	echo '{"binary": "sans_fin",  "native_libs": [], "name": "sans", "args": ["-c", "sans2.conf"], "modules": [], "ldflags": [], "main": "sans.bc", "config_files":["sans2.conf"] }' > ${SANS_MANIFEST} && \
-	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./ 2> ${LOG_FILE}
+	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./sock5 2> ${LOG_FILE}
 
 tcp: ${OUT_DIR}
 	cp ${SANS_BITCODE} ${OUT_DIR} && \
 	cp sanss.conf ${OUT_DIR} && \
 	cd ${OUT_DIR} && \
 	echo '{"binary": "sans_fin",  "native_libs": [], "name": "sans", "args": ["-c", "sanss.conf"], "modules": [], "ldflags": [], "main": "sans.bc", "config_files":["sanss.conf"] }' > ${SANS_MANIFEST} && \
-	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./ 2> ${LOG_FILE}
+	python ${TRIMMER_HOME}/tool/trimmer.py ${SANS_MANIFEST} ./tcp 2> ${LOG_FILE}
 
 
 .PHONY: ${SANS_BITCODE}
-${SANS_BITCODE}: ${SANS_NAME} 
+${SANS_BITCODE}: ${SANS_NAME}
 	cd ${SANS_NAME} && \
-	autoreconf -if && \
 	CC=${BITCODE_WRAPPER} CFLAGS="-O0 -fno-inline -fno-inline-functions -Xclang -disable-O0-optnone" ./configure && \
 	CC=${BITCODE_WRAPPER} make && \
 	cd src/ && \
@@ -52,13 +57,9 @@ ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
 
 ${SANS_NAME}:
-	git clone https://github.com/puxxustc/sans.git
-#	tar -xvzf ./${SANS_TAR}
-${HELPER_SCRIPT}:
-	tar -xvf ./${HELPER_TAR}
+	tar -xvzf ./${SANS_TAR}
+
 clean:
 	rm -rf ${SANS_NAME}
-	rm -rf *.bc *_slashed *_slashed_stripped *manifest
-	rm -rf ${OUT_DIR}
-	rm -rf slash
-	rm -rf sans_slashed
+	rm *.bc
+	rm -r ${OUT_DIR}
