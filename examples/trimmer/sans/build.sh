@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-make udp
+make udp option=${1}
 cp trimmer/udp/sans_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

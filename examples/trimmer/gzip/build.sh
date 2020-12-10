@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-make compress
+make compress option=${1}
 cp trimmer/work_dir/gzip_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

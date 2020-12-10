@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-make readelf
+make readelf option=${1}
 cp trimmer/work_dir/readelf_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

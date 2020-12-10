@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-make aircrack
+make aircrack option=${1}
+
 cp trimmer/aircrack/aircrack-ng_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

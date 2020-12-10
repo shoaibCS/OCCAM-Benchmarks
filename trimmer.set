@@ -3,47 +3,47 @@
 	{
             "dirname" : "examples/trimmer/sans",
             "execname": "sans",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/gzip",
             "execname": "gzip",
-            "enabled" : "false"
+            "enabled" : "true"
         },
 	{
             "dirname" : "examples/trimmer/mini_httpd",
             "execname": "mini_httpd",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/aircrack",
             "execname": "aircrack-ng",
-            "enabled" : "false"
+            "enabled" : "true"
         },
 	{
             "dirname" : "examples/trimmer/airtun",
             "execname": "airtun-ng",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/thttpd",
             "execname": "thttpd",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/netperf",
             "execname": "netperf",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/wget",
             "execname": "wget",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
-            "dirname" : "examples/trimmer/readlelf",
+            "dirname" : "examples/trimmer/readelf",
             "execname": "readelf",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/objdump",
@@ -53,12 +53,12 @@
         {
             "dirname" : "examples/trimmer/totd",
             "execname": "totd",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/bzip2",
             "execname": "bzip2",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/memcached",
@@ -68,12 +68,12 @@
         {
             "dirname" : "examples/trimmer/netstat",
             "execname": "netstat",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/dnsproxy",
             "execname": "dnsproxy",
-            "enabled" : "false"
+            "enabled" : "true"
         }
     ]
 }

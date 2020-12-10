@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-make objdump
+make objdump option=${1}
 cp trimmer/objdump/objdump_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

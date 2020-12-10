@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-make compress
+make compress option=${1}
 cp trimmer/work_dir/wget_linked_intern.bc .
 
 echo "Statistics for program before specialization" >&2

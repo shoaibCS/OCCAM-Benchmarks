@@ -22,7 +22,7 @@ netperf: ${OUT_DIR}
 	cp ${NETPERF_BITCODE} ${OUT_DIR} && \
 	cd ${OUT_DIR} && \
 	echo '{"binary": "netperf_fin", "native_libs": [], "name": "netperf", "args": ["-H", "localhost","-t","TCP_RR","-D","5,G","-i","15,1"], "modules": [], "ldflags": ["-lm"], "main": "netperf.bc", "config_files": []}' > ${NETPERF_MANIFEST} && \
-	python ${TRIMMER_HOME}/tool/trimmer.py ${NETPERF_MANIFEST} ./work_dir  2> ${LOG_FILE}
+	python ${TRIMMER_HOME}/tool/trimmer.py ${NETPERF_MANIFEST} ./work_dir $(option) 2> ${LOG_FILE}
 
 .PHONY: ${NETPERF_BITCODE}
 ${NETPERF_BITCODE}: ${NETPERF_NAME}
