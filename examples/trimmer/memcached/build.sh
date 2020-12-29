@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-make compress option=${1}
+
+export option=${1}
+make -f Makefile_memcached compress option=${1}
+
 cp trimmer/mem/memcached_opt3.bc .
 
 echo "Statistics for program before specialization" >&2
