@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 rm -rf netstat.bc
-
-export option=${1}
+args="$*"
+export option="$args"
 ./script.exp
 
 make netstat

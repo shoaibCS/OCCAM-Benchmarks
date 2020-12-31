@@ -48,7 +48,7 @@
         {
             "dirname" : "examples/trimmer/objdump",
             "execname": "objdump",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/totd",
@@ -63,7 +63,7 @@
         {
             "dirname" : "examples/trimmer/memcached",
             "execname": "memcached",
-            "enabled" : "false"
+            "enabled" : "true"
         },
         {
             "dirname" : "examples/trimmer/netstat",

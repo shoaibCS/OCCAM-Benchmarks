@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-make compress option=${1}
+
+args="$*"
+make compress option="$args"
 cp trimmer/work/bzip2_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-make aircrack option=${1}
+
+args="$*"
+make aircrack option="$args"
 
 cp trimmer/aircrack/aircrack-ng_opt3.bc .
 

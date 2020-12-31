@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-make dns option=${1}
+args="$*"
+make dns option="$args"
 cp trimmer/workdir/dnsproxy_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

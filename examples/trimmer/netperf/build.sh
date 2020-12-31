@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-make netperf option=${1}
+
+args="$*"
+make netperf option="$args"
 cp trimmer/work_dir/netperf_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

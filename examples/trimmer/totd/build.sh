@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-make ipv4 option=${1}
+
+args="$*"
+make ipv4 option="$args"
 cp trimmer/workdir/totd_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

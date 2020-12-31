@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-make airtun option=${1}
+args="$*"
+make airtun option="$args"
 cp trimmer/airtun/airtun-ng_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

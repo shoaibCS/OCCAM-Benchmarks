@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-make udp option=${1}
+
+args="$*"
+
+make udp option="$args"
 cp trimmer/udp/sans_opt3.bc .
 
 echo "Statistics for program before specialization" >&2

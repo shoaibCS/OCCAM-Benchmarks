@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-export option=${1}
-make -f Makefile_memcached compress option=${1}
+args="$*"
+export opition="$args"
+make -f Makefile_memcached compress option="$args"
 
 cp trimmer/mem/memcached_opt3.bc .
 

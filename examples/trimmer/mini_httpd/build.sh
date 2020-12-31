@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-make mini option=${1}
+args="$*"
+make mini option="$args"
 cp trimmer/work_dir/mini_httpd_opt3.bc .
 
 echo "Statistics for program before specialization" >&2
